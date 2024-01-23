@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pedidos</h1>
+
+<div id="pedidos" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Valor Total</th>
+        <th scope="col">Itens</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pedidos.each do |pedido| %>
+        <tr>
+          <th scope="row"><%= pedido.id %></th>
+          <td><%= pedido.cliente.nome %></td>
+          <td><%= number_to_currency(pedido.valor_total) %></td>
+          <td><%= pedido.itens %></td>
+          <td>
+            <%= link_to "Show this pedido", pedido, class: "btn btn-primary btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New pedido", new_pedido_path, class: "btn btn-success" %>
