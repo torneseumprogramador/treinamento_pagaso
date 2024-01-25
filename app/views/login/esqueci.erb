@@ -1,0 +1,19 @@
+<h2>Login</h2>
+<hr>
+<form action="/recuperar" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" value="<%= params[:email] %>" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
+  </div>
+
+  <% if @erro.present? %>
+    <div style="margin-top:10px" class="alert alert-danger" role="alert">
+        <%= @erro %>
+    </div>
+  <% end %>
+
+  <br>
+  <button type="submit" class="btn btn-primary">Recuperar</button>
+</form>

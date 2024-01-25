@@ -18,6 +18,18 @@
       </h5>
     </div>
     <div class="container">
+      <% if flash["success"].present? %>
+        <div class="alert alert-success" role="alert">
+          <%= flash["success"] %>
+        </div>
+      <% end %>
+
+      <% if flash["error"].present? %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash["error"] %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>

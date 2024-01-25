@@ -17,11 +17,15 @@
     <label class="form-check-label" for="logado">Me mantenha logado</label>
   </div>
 
+  <div>
+    <a href="/esqueci-senha">Esqueceu sua senha?</a>
+  </div>
+
   <% if @erro.present? %>
     <div class="alert alert-danger" role="alert">
         <%= @erro %>
     </div>
   <% end %>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Logar</button>
 </form>

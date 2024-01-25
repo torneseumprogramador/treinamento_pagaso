@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_180248) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_25_184731) do
   create_table "administradors", force: :cascade do |t|
     t.string "nome", limit: 150
     t.string "senha", limit: 100
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_180248) do
   create_table "tbl_produtos", force: :cascade do |t|
     t.text "nome", limit: 200, null: false
     t.integer "id_do_pedido"
+  end
+
+  create_table "token_acessos", force: :cascade do |t|
+    t.string "token"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "pedidos", "clientes"
