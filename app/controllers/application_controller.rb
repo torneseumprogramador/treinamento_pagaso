@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
             return redirect_to "/login"
         end
 
-        @adm = Administrador.new(JSON.parse(request.cookies["treinamento_logado"]))
+        token = request.cookies["treinamento_logado"]
+        adm_hash = JwtTransform::decode(token)
+        if adm_hash.blank?
+            return redirect_to "/login"
+        end
+
+        @adm = Administrador.new(adm_hash)
     rescue
         redirect_to "/login"
     end
